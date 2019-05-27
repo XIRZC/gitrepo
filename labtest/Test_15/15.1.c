@@ -1,5 +1,6 @@
 /* 15.1.c--学号删除单链表的结点 */
 #include<stdio.h>
+#include<stdlib.h> 
 #include"sum.h"
 int main(void)
 {
