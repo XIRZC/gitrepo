@@ -1,3 +1,1 @@
-Hello, welcome to zicongxie.com to browse my website and some articles about git.
-Let us learn the wonderful git together.
-emmmm
+There are some c files and exe files, which are zicongxie's c practices' codes completed in a careful way.
