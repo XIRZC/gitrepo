@@ -1,4 +1,4 @@
-/* 10.7.c--文件读取二进制数据然后进行排序,然后插入一个学生新生成文件 */
+/* 10.7.c--文件读取二进制数据然后进行排序,然后插入一个学生并插入到原文件 */
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -16,12 +16,11 @@ struct TEMP{
 void swapscore(float *pt1,float *pt2);
 int main(void)
 {
-	FILE *fpt1,*fpt2,*fpt3;
+	FILE *fpt1,*fpt2;
 	int i,j,k,count;
 	float sum=0;
 	fpt1=fopen("C://Users/Xiezi/Desktop/temp/stud.txt","rb");
 	fpt2=fopen("C://Users/Xiezi/Desktop/temp/stu_sort.txt","wb");
-	fpt3=fopen("C://Users/Xiezi/Desktop/temp/stu_ins.txt","w"); 
 	if(fpt1==NULL)
 	{
 		printf("读取文件出错！！\n");
@@ -32,16 +31,11 @@ int main(void)
 		printf("创建文件时出错！！！\n");
 		exit(0);
 	}
-	if(fpt3==NULL)
-	{
-		printf("创建文件时出错！！！\n");
-		exit(0);
-	}
 	for(i=0;i<5;i++)
 	{
 		fread(&stu[i],sizeof(struct student),1,fpt1);	
 	} 
-	for(i=0;i<4;i++)
+	for(i=0;i<4;i++)  /* 冒泡排序对平均成绩进行排序，并保持其他数据跟随其平均成绩交换 */ 
 	{
 		for(j=0;j<4-i;j++)
 		{
@@ -80,28 +74,10 @@ int main(void)
 	else if(i==0)  /* 若i为0时就退出则说明要插入到最前 */ 
 		count=0;
 	else ;
-	if(count==5)
-	{
-		fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stunew.num,stunew.name,
-		stunew.score[0],stunew.score[1],stunew.score[2],stunew.average);
-		fputc('\n',fpt3);
-	}
- 	else
-	{
-		for(i=0;i<5;i++)
-		{
-			if(count==i)
-			{
-				fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stunew.num,stunew.name,
-				stunew.score[0],stunew.score[1],stunew.score[2],stunew.average);
-				fputc('\n',fpt3);
-				break;
-			}
-		}
-	} 
+	fseek(fpt2,(long)sizeof(struct student)*count,0);
+	fwrite(&stunew,sizeof(struct student),1,fpt2);
 	fclose(fpt1);
 	fclose(fpt2); 
-	fclose(fpt3);
 	return 0;
 }
 void swapscore(float *pt1,float *pt2)
