@@ -1,5 +1,6 @@
 /* 13.1.c--结构体输入输出学生的信息 */ 
 #include<stdio.h>
+#include<stdlib.h>
 typedef struct student_info{
 	long num;
 	char name[10];
@@ -17,6 +18,7 @@ int main(void)
 		input(stu+i);
 	for(i=0;i<3;i++)
 		print(stu+i,i);
+	system("pause");
 	return 0;
 }
 void input(stuinfo *pt)
