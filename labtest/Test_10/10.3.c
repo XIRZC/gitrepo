@@ -7,5 +7,6 @@ int main(void)
 	printf("请输入两个要相除得余数的两个数：");
 	scanf("%d %d",&a,&b);
 	printf("这两个数相除所得余数为：%d",mod(a,b));
+	system("pause"); 
 	return 0;
 } 
