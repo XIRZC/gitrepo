@@ -14,6 +14,7 @@ int main(void)
 	FILE *fpt;
 	int i,count=0;
 	fpt=fopen("C://Users/Xiezi/Desktop/temp/student.txt","r");
+	/* 只有r可以读取数据,若为w或a时都会导致读取失败，w还会清空原文件内容 */
 	if(fpt==NULL)
 	{
 		printf("文件打开失败！！！\n");
