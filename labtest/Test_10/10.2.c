@@ -1,7 +1,7 @@
 /* 10.2.c--求解若干个数中最大的数 */
 #include<stdio.h>
 #define max2(x,y) ((x)>(y)?(x):(y))
-#define max3(x,y,z) max2((z),max2((x),(y)))
+#define max3(x,y,z) max2(z,max2(x,y))
 int main(void)
 {
 	int a,b,c;
