@@ -59,27 +59,25 @@ stu *merge(stu *head1,stu *head2)
 	pt1->next=pt2;
 	return head1; 
 }
-void sort(stu *head)
+void sort(stu *head)   /* 通过仅仅交换数据(冒泡排序)来实现排序 */
 {
 	stu *pt1,*pt2;
-	long templ;
-	float tempf;
-	for(pt1=head;pt1->next!=NULL;pt1=pt1->next )  /* 利用冒泡排序来对该链表的各成员数据进行比较并交换值 */
+	stu temp; 
+	for(pt1=head;pt1->next!=NULL;pt1=pt1->next )
 	{
-		for(pt2=head;pt2->next!=NULL;pt2=pt2->next )  
-		/* 注意for循环退出条件为pt1->next！=NULL，而不是pt1->next！=NULL,若为后者的话则会导致对NULL指针去了成员变量的值 */
+		for(pt2=head;pt2->next!=NULL;pt2=pt2->next)
 		{
 			if(pt2->num>pt2->next->num)
 			{
-				templ=pt2->num;
+				temp.num=pt2->num;
 				pt2->num=pt2->next->num;
-				pt2->next->num=templ;
-				tempf=pt2->score;
+				pt2->next->num=temp.num;
+				temp.score=pt2->score;
 				pt2->score=pt2->next->score;
-				pt2->next->score=tempf;
+				pt2->next->score=temp.score;
 			}
 		}
-	}
+	} 
 	return;
 }
 void print(stu *head)
