@@ -49,7 +49,7 @@ int count(int year,int month,int day)
 }
 int isrun(int year)  /* 定义闰年函数，来判断二月的天数，并返回布尔值以供主函数运用 */ 
 {
-	if(year%4==0&&year%100==0||year%400==0)
+	if(year%4==0&&year%100!=0||year%400==0)
 		return 1;
 	else
 		return 0;
