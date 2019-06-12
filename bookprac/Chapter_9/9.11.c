@@ -20,7 +20,7 @@ int main(void)
 		{
 			if(pt2->num==pt1->num )
 			{
-				heada=del(pt1,pt1->num);
+				heada=del(heada,pt1->num);
 				/* 如果该过程中没有删除头结点，则保留原头结点，若删除了头结点，则赋值为新的头结点以便后续输出 */
 			}
 		}

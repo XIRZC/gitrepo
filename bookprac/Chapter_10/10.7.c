@@ -80,25 +80,24 @@ int main(void)
 	else if(i==0)  /* 若i为0时就退出则说明要插入到最前 */ 
 		count=0;
 	else ;
+	for(i=0;i<5;i++)
+	{
+		if(count==i)
+		{
+			fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stunew.num,stunew.name,
+			stunew.score[0],stunew.score[1],stunew.score[2],stunew.average);
+			fputc('\n',fpt3);
+	 	}
+		fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stu[i].num,stu[i].name,
+		stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].average);
+		fputc('\n',fpt3);
+	}
 	if(count==5)
 	{
 		fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stunew.num,stunew.name,
 		stunew.score[0],stunew.score[1],stunew.score[2],stunew.average);
 		fputc('\n',fpt3);
 	}
- 	else
-	{
-		for(i=0;i<5;i++)
-		{
-			if(count==i)
-			{
-				fprintf(fpt3,"%ld %s %.2f %.2f %.2f %.2f",stunew.num,stunew.name,
-				stunew.score[0],stunew.score[1],stunew.score[2],stunew.average);
-				fputc('\n',fpt3);
-				break;
-			}
-		}
-	} 
 	fclose(fpt1);
 	fclose(fpt2); 
 	fclose(fpt3);
